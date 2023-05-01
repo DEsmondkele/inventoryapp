@@ -1,2 +1,2 @@
 # inventoryapp
-an inventory application, I response to a task given.
+an inventory application using a microservices, in response to a task given.
