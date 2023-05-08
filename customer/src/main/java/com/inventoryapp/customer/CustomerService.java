@@ -1,12 +1,25 @@
 package com.inventoryapp.customer;
 
-public record CustomerService () {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CustomerService {
+    private final CustomerRepository customerRepository;
+
+    @Autowired
+    public CustomerService(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
+
     public void registerCustomer(CustomerRegistrationRequest registrationRequest) {
         Customer customer = Customer.builder()
-                .firstName(registrationRequest.firstName())
-                .lastName(registrationRequest.lastName())
-                .email(registrationRequest.email())
+                .firstName(registrationRequest.getFirstName())
+                .lastName(registrationRequest.getLastName())
+                .email(registrationRequest.getEmail())
         .build();
-        //tod
+        //todo save new customer to database
+
+
     }
 }
